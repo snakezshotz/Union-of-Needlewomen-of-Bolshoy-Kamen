@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Союз рукодельниц Большого Камня - творчество, вдохновение и мастерство в каждом изделии. Handmade изделия ручной работы.">
+    <title>Союз рукодельниц Большого Камня | Рукоделие для всей семьи</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Подключение красивых шрифтов -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#home" class="logo">
+                    <i class="fas fa-hands-helping logo-icon"></i>
+                    <span class="logo-text">Союз рукодельниц</span>
+                </a>
+                <nav>
+                    <ul id="nav-menu">
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#gallery">Галерея</a></li>
+                        <li><a href="#masters">Мастера</a></li>
+                        <li><a href="#workshops">Мастер-классы</a></li>
+                        <li><a href="#contacts">Контакты</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Главный экран -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Союз рукодельниц Большого Камня</h1>
+                <p>Творчество, вдохновение и мастерство в каждом изделии</p>
+                <a href="https://vk.com/market-233299105?screen=group" class="cta-button" target="_blank">
+                    <i class="fas fa-shopping-cart"></i> Смотреть каталог
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Галерея работ -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Наши работы</h2>
+            <div class="gallery-container">
+                <div class="gallery-track top" id="top-track">
+                    <!-- Изображения будут добавлены через JavaScript -->
+                </div>
+                <div class="gallery-track bottom" id="bottom-track">
+                    <!-- Изображения будут добавлены через JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел "Наши мастера" -->
+    <section class="masters-section" id="masters">
+        <div class="container">
+            <h2 class="section-title">Наши мастера</h2>
+            <div class="masters-grid">
+                
+                <!-- Мастер 1 -->
+                <div class="master-card">
+                    <h3 class="master-name">Авсиевич Наталья Сергеевна</h3>
+                    <div class="master-specialization">Свечи и мыло ручной работы</div>
+                    <p class="master-description">Изготавливаю ароматные свечи и натуральное мыло. Использую только качественные материалы и эфирные масла.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79089628382" class="contact-link">+7 908 962-83-82</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/natalia_soap" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/natalia_soap" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер 2 -->
+                <div class="master-card">
+                    <h3 class="master-name">Бареева Дарья Владимировна</h3>
+                    <div class="master-specialization">Свечи, изделия из бетона, декоративный мох</div>
+                    <p class="master-description">Создаю уникальные свечи, элементы декора из бетона и композиции с использованием декоративного мха.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79241351712" class="contact-link">+7 924 135-17-12</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/daria_concrete" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/daria_concrete" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер 3 -->
+                <div class="master-card">
+                    <h3 class="master-name">Батракова Елена Петровна</h3>
+                    <div class="master-specialization">Пряники ручной работы</div>
+                    <p class="master-description">Создаю вкусные и красивые пряники ручной работы с художественной росписью. Идеально для подарков и праздников.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79502891007" class="contact-link">+7 950 289-10-07</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/elena_ginger" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/elena_ginger" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер 4 -->
+                <div class="master-card">
+                    <h3 class="master-name">Бердинская Светлана Николаевна</h3>
+                    <div class="master-specialization">Бантики, канзаши</div>
+                    <p class="master-description">Изготавливаю красивые бантики и аксессуары в технике канзаши для детей и взрослых.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79147000017" class="contact-link">+7 914 700-00-17</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/svetlana_kanzashi" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/svetlana_kanzashi" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер 5 -->
+                <div class="master-card">
+                    <h3 class="master-name">Борщевская Анастасия Вячеславовна</h3>
+                    <div class="master-specialization">Мыльные сувениры и вязаные игрушки</div>
+                    <p class="master-description">Создаю ароматные мыльные сувениры и милые вязаные игрушки. Идеальные подарки для любых праздников.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79140757171" class="contact-link">+7 914 075-71-71</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/anastasia_toys" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/anastasia_toys" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер 6 -->
+                <div class="master-card">
+                    <h3 class="master-name">Даурова Оксана Александровна</h3>
+                    <div class="master-specialization">Игрушки из ваты, блокноты</div>
+                    <p class="master-description">Создаю нежные игрушки из ваты и уникальные блокноты ручной работы. Каждое изделие выполнено с особым вниманием к деталям.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79147300353" class="contact-link">+7 914 730-03-53</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/oksana_cotton" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/oksana_cotton" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер 7 -->
+                <div class="master-card">
+                    <h3 class="master-name">Ветох Лариса Николаевна</h3>
+                    <div class="master-specialization">Вязаные игрушки</div>
+                    <p class="master-description">Создаю милые и уютные вязаные игрушки, которые дарят тепло и радость. Каждая игрушка связана с любовью.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79146789940" class="contact-link">+7 914 678-99-40</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/larisa_toys" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/larisa_toys" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер 8 -->
+                <div class="master-card">
+                    <h3 class="master-name">Инзаркина Наталья Валерьевна</h3>
+                    <div class="master-specialization">Изделия из бисера и синельной проволоки</div>
+                    <p class="master-description">Создаю изящные украшения и поделки из бисера, а также творческие работы из синельной проволоки.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79242458752" class="contact-link">+7 924 245-87-52</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/natalia_beads" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/natalia_beads" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер 9 -->
+                <div class="master-card">
+                    <h3 class="master-name">Казанцева Татьяна Анатольевна</h3>
+                    <div class="master-specialization">Вязаные игрушки</div>
+                    <p class="master-description">Специализируюсь на создании вязаных игрушек - от маленьких амигуруми до больших плюшевых друзей.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79146861857" class="contact-link">+7 914 686-18-57</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/tatiana_amigurumi" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/tatiana_amigurumi" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер 10 -->
+                <div class="master-card">
+                    <h3 class="master-name">Кованченко Мария Вячеславовна</h3>
+                    <div class="master-specialization">Керамика</div>
+                    <p class="master-description">Создаю уникальные керамические изделия - от посуды до декоративных элементов. Работаю с глиной на гончарном круге.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79662887778" class="contact-link">8 966 288-77-78</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/maria_ceramics" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/maria_ceramics" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер 11 -->
+                <div class="master-card">
+                    <h3 class="master-name">Ливанова Елена Павловна</h3>
+                    <div class="master-specialization">Бантики из канзаши</div>
+                    <p class="master-description">Создаю красивые бантики в технике канзаши из атласных лент. Также готовлю домашние сушёные лакомства для собачек.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                             <i class="fas fa-phone"></i>
+                             <a href="tel:+79089999517" class="contact-link">+7 908 999-95-17</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/elena_kanzashi" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/elena_kanzashi" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер 12 -->
+                <div class="master-card">
+                    <h3 class="master-name">Мамонова Ирина Владимировна</h3>
+                    <div class="master-specialization">Имбирные пряники</div>
+                    <p class="master-description">Искусство росписи имбирных пряников. Создаю съедобные шедевры для праздников и особых occasions.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79633443551" class="contact-link">+7 963 344-35-51</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/irina_ginger" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/irina_ginger" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер 13 -->
+                <div class="master-card">
+                    <h3 class="master-name">Маскайкина Любовь Анатольевна</h3>
+                    <div class="master-specialization">Вязаные игрушки, изделия из бисера</div>
+                    <p class="master-description">Создаю вязаные игрушки и изящные украшения из бисера. Работаю в различных техниках - от традиционных до современных.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79242573243" class="contact-link">+7 924 257-32-43</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/lyubov_handmade" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/lyubov_handmade" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер 14 -->
+                <div class="master-card">
+                    <h3 class="master-name">Миталева Галина Александровна</h3>
+                    <div class="master-specialization">Вязание, плетение брелоков, синильная проволока, рисование на камнях</div>
+                    <p class="master-description">Многогранный творческий человек, работающий в различных техниках рукоделия. От вязания до создания украшений из проволоки.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79146972210" class="contact-link">+7 914 697-22-10</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/galina_multicraft" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/galina_craft" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер 15 -->
+                <div class="master-card">
+                    <h3 class="master-name">Норик Юлия Валериевна</h3>
+                    <div class="master-specialization">Аквагрим, керамические свистульки, роспись</div>
+                    <p class="master-description">Профессиональный аквагрим и роспись различных поверхностей. Также создаю уникальные керамические свистульки.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79241360226" class="contact-link">+7 924 136-02-26</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/yulia_facepaint" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/yulia_faceart" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер 16 -->
+                <div class="master-card">
+                    <h3 class="master-name">Носуль Юлия Сергеевна</h3>
+                    <div class="master-specialization">Изделия из эпоксидной смолы</div>
+                    <p class="master-description">Создаю уникальные украшения и предметы интерьера из эпоксидной смолы. Каждое изделие - это маленькое произведение искусства.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79941051449" class="contact-link">+7 994 105-14-49</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/yulia_resin" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/yulia_resin" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер 17 -->
+                <div class="master-card">
+                    <h3 class="master-name">Однокурцева Татьяна Геннадьевна</h3>
+                    <div class="master-specialization">Пряники, натуральное мыло ручной работы</div>
+                    <p class="master-description">Создаю вкусные расписные пряники и натуральное мыло ручной работы с использованием качественных ингредиентов.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79147266076" class="contact-link">+7 914 726-60-76</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/tatiana_ginger" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/tatiana_ginger" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер 18 -->
+                <div class="master-card">
+                    <h3 class="master-name">Пичуева Ульяна Сергеевна</h3>
+                    <div class="master-specialization">Мыловарение</div>
+                    <p class="master-description">Создаю натуральное мыло ручной работы с использованием растительных масел, эфирных масел и натуральных красителей.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79146557445" class="contact-link">+7 914 655-74-45</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/ulyana_soap" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/ulyana_soap" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер 19 -->
+                <div class="master-card">
+                    <h3 class="master-name">Рябова Ирина Геннадьевна</h3>
+                    <div class="master-specialization">Леденцы, шоколад, вязаные мочалки, игрушки</div>
+                    <p class="master-description">Разнообразное творчество: от сладких леденцов и шоколада до практичных вязаных мочалок и игрушек.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79241390507" class="contact-link">+7 924 139-05-07</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/irina_sweets" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/irina_craft" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер 20 -->
+                <div class="master-card">
+                    <h3 class="master-name">Старова Алёна Анатольевна</h3>
+                    <div class="master-specialization">Текстильные и вязаные игрушки</div>
+                    <p class="master-description">Создаю уютные текстильные и вязаные игрушки для детей и взрослых. Особое внимание уделяю качеству и безопасности материалов.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79242572901" class="contact-link">+7 924 257-29-01</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/alena_toys" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/alena_toys" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер 21 -->
+                <div class="master-card">
+                    <h3 class="master-name">Третьякова Яна Александровна</h3>
+                    <div class="master-specialization">Сувениры, игрушки, текстиль, бижутерия, иллюстрация</div>
+                    <p class="master-description">Универсальный мастер с широким спектром творческих направлений. Создаю уникальные изделия в разных техниках.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79940035856" class="contact-link">+7 994 003-58-56</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/yana_multicraft" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/yana_craft" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер 22 -->
+                <div class="master-card">
+                    <h3 class="master-name">Тюнина Анастасия Андреевна</h3>
+                    <div class="master-specialization">Брелки, блеск-тату, мастер-классы, аттракцион</div>
+                    <p class="master-description">Создаю яркие брелки и блеск-тату. Организую мастер-классы и веселые аттракционы для мероприятий.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79146500406" class="contact-link">+7 914 650-04-06</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/anastasia_fun" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/anastasia_fun" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер 23 -->
+                <div class="master-card">
+                    <h3 class="master-name">Усанина Юлия Константиновна</h3>
+                    <div class="master-specialization">Эпоксидная смола, детские мастер-классы</div>
+                    <p class="master-description">Универсальный мастер для детей и взрослых творческого пространства АртФокус, мастер по эпоксидной смоле.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79243319689" class="contact-link">+7 924 331-96-89</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/yulia_artfocus" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/yulia_artfocus" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер 24 -->
+                <div class="master-card">
+                    <h3 class="master-name">Фрейман Валентина Николаевна</h3>
+                    <div class="master-specialization">Аквагрим, вышивка</div>
+                    <p class="master-description">Совмещаю искусство аквагрима и традиционную вышивку. Создаю как временные рисунки на лице, так и постоянные на ткани.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79841919549" class="contact-link">+7 984 191-95-49</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/valentina_face" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/valentina_face" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел мастер-классов -->
+    <section class="workshops-section" id="workshops">
+        <div class="container">
+            <h2 class="section-title">Мастер-классы</h2>
+            <div class="workshops-grid">
+                
+                <!-- Мастер-класс 1 -->
+                <div class="master-card workshop-card">
+                    <h3 class="master-name">Батракова Елена Петровна</h3>
+                    <div class="master-specialization">Пряники ручной работы</div>
+                    <p class="master-description">Мастер-классы по созданию и росписи имбирных пряников. Научимся основам кондитерского искусства и декорирования.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79502891007" class="contact-link">+7 950 289-10-07</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/elena_ginger" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/elena_ginger" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер-класс 2 -->
+                <div class="master-card workshop-card">
+                    <h3 class="master-name">Кованченко Мария Вячеславовна</h3>
+                    <div class="master-specialization">Мастер-классы по керамике</div>
+                    <p class="master-description">Провожу увлекательные мастер-классы по работе с глиной. Научимся основам гончарного искусства и создадим уникальные изделия.</p>
+                    <div class="workshop-requirements">
+                        <i class="fas fa-plug"></i> Требуется электричество
+                    </div>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79662887778" class="contact-link">8 966 288-77-78</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/maria_ceramics" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/maria_ceramics" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер-класс 3 -->
+                <div class="master-card workshop-card">
+                    <h3 class="master-name">Ливанова Елена Павловна</h3>
+                    <div class="master-specialization">Бантики из лент</div>
+                    <p class="master-description">Научу создавать красивые бантики из атласных лент в технике канзаши. Подходит для начинающих.</p>
+                    <div class="workshop-requirements">
+                        <i class="fas fa-plug"></i> Требуется электричество
+                    </div>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79089999517" class="contact-link">+7 908 999-95-17</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/elena_kanzashi" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/elena_kanzashi" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер-класс 4 -->
+                <div class="master-card workshop-card">
+                    <h3 class="master-name">Мамонова Ирина Владимировна</h3>
+                    <div class="master-specialization">Роспись имбирных пряников</div>
+                    <p class="master-description">Научу искусству росписи имбирных пряников. Создадим съедобные шедевры, которые станут прекрасным подарком.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79633443551" class="contact-link">+7 963 344-35-51</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/irina_ginger" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/irina_ginger" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер-класс 5 -->
+                <div class="master-card workshop-card">
+                    <h3 class="master-name">Миталева Галина Александровна</h3>
+                    <div class="master-specialization">Синельная проволока, вязание крючком, брелки, рисование на камнях</div>
+                    <p class="master-description">Провожу разнообразные мастер-классы для детей и взрослых. От создания фигурок из синельной проволоки до рисования на камнях.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79146972210" class="contact-link">+7 914 697-22-10</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/galina_multicraft" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/galina_craft" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер-класс 6 -->
+                <div class="master-card workshop-card">
+                    <h3 class="master-name">Норик Юлия Валериевна</h3>
+                    <div class="master-specialization">Аквагрим, керамические свистульки, роспись брелков и магнитов</div>
+                    <p class="master-description">Профессиональные мастер-классы по аквагриму и росписи различных поверхностей. Также научим создавать керамические свистульки.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79241360226" class="contact-link">+7 924 136-02-26</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/yulia_facepaint" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/yulia_faceart" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер-класс 7 -->
+                <div class="master-card workshop-card">
+                    <h3 class="master-name">Третьякова Яна Александровна</h3>
+                    <div class="master-specialization">Браслеты из бусин</div>
+                    <p class="master-description">Научу создавать красивые и стильные браслеты из бусин. Подберем цвета и научимся различным техникам плетения.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79940035856" class="contact-link">+7 994 003-58-56</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/yana_multicraft" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/yana_craft" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер-класс 8 -->
+                <div class="master-card workshop-card">
+                    <h3 class="master-name">Тюнина Анастасия Андреевна</h3>
+                    <div class="master-specialization">Деревянные брелки, мыло, свечи, аттракцион "Перекладина"</div>
+                    <p class="master-description">Разнообразные мастер-классы по созданию деревянных брелоков, мыла и свечей. Также организую веселый аттракцион "Перекладина".</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79146500406" class="contact-link">+7 914 650-04-06</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/anastasia_fun" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/anastasia_fun" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер-класс 9 -->
+                <div class="master-card workshop-card">
+                    <h3 class="master-name">Усанина Юлия Константиновна</h3>
+                    <div class="master-specialization">Ловец снов, роспись шопперов, плетение из бусин, брелки макраме</div>
+                    <p class="master-description">Разнообразные творческие мастер-классы для детей и взрослых. От создания ловцов снов до росписи экологичных шопперов.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79243319689" class="contact-link">+7 924 331-96-89</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/yulia_artfocus" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/yulia_artfocus" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мастер-класс 10 -->
+                <div class="master-card workshop-card">
+                    <h3 class="master-name">Фрейман Валентина Николаевна</h3>
+                    <div class="master-specialization">Рисование на ракушках, роспись футболок</div>
+                    <p class="master-description">Увлекательные мастер-классы по росписи натуральных ракушек и созданию уникальных дизайнов на футболках.</p>
+                    <div class="master-contacts">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79841919549" class="contact-link">+7 984 191-95-49</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/valentina_face" class="social-link" target="_blank">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://t.me/valentina_face" class="social-link" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer id="contacts">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Союз рукодельниц</div>
+                    <p>Объединение талантливых мастеров города Большой Камень. Создаем уникальные handmade-изделия с душой и любовью.</p>
+                    <div class="footer-social-links">
+                        <a href="https://vk.com/club233299105" class="footer-social-link" target="_blank">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                        <a href="https://vk.com/market-233299105?screen=group" class="footer-social-link" target="_blank">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-contacts">
+                    <h3 class="footer-heading">Контакты</h3>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>г. Большой Камень, Приморский край</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>soyuz_rukodelnic@mail.ru</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3 class="footer-heading">Полезные ссылки</h3>
+                    <ul class="contact-list">
+                        <li><a href="#home" style="color: white; text-decoration: none;">Главная</a></li>
+                        <li><a href="#gallery" style="color: white; text-decoration: none;">Галерея работ</a></li>
+                        <li><a href="#masters" style="color: white; text-decoration: none;">Наши мастера</a></li>
+                        <li><a href="#workshops" style="color: white; text-decoration: none;">Мастер-классы</a></li>
+                        <li><a href="https://vk.com/market-233299105?screen=group" style="color: white; text-decoration: none;" target="_blank">Каталог в VK Маркет</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Союз рукодельниц Большого Камня. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Кнопка "Наверх" -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
