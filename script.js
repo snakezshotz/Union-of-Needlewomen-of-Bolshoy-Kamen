@@ -1,10 +1,8 @@
-// Функция для получения случайных изображений из папки
+// Функция для получения случайных изображений из папки images/random-works
 function getRandomImages(count) {
     const images = [];
-    // Генерируем случайные пути к изображениям из вашей папки
     for (let i = 0; i < count; i++) {
-        // Случайный номер от 1 до 12 (по количеству ваших изображений)
-        const randomNum = Math.floor(Math.random() * 12) + 1;
+        const randomNum = Math.floor(Math.random() * 75) + 1;
         images.push(`images/random-works/${randomNum}.jpg`);
     }
     return images;
@@ -19,65 +17,328 @@ function shuffleArray(array) {
     return array;
 }
 
+// Функция обработки ошибок загрузки изображений
+function handleImageError(imgElement, imageNumber) {
+    console.warn(`Image ${imageNumber}.jpg failed to load, using fallback`);
+    
+    const fallbackImages = [
+        'https://images.unsplash.com/photo-1594736797933-d0ea3ff8db41?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80',
+        'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-4.0.3&auto=format&fit=crop&w=715&q=80'
+    ];
+    
+    const randomFallback = fallbackImages[Math.floor(Math.random() * fallbackImages.length)];
+    imgElement.src = randomFallback;
+    imgElement.alt = "Изображение работы (запасной вариант)";
+}
+
 // Функция для создания галереи
 function createGallery() {
     const topTrack = document.getElementById('top-track');
     const bottomTrack = document.getElementById('bottom-track');
     
-    // Получаем случайные изображения (12 для каждого ряда)
-    const topImages = getRandomImages(12);
-    const bottomImages = getRandomImages(12);
+    if (!topTrack || !bottomTrack) {
+        console.error('Gallery tracks not found!');
+        return;
+    }
     
-    // Перемешиваем массивы изображений
+    topTrack.innerHTML = '';
+    bottomTrack.innerHTML = '';
+    
+    const topImages = getRandomImages(15);
+    const bottomImages = getRandomImages(15);
+    
     const shuffledTopImages = shuffleArray([...topImages]);
     const shuffledBottomImages = shuffleArray([...bottomImages]);
     
-    // Создаем элементы для верхнего ряда
-    shuffledTopImages.forEach(url => {
+    shuffledTopImages.forEach((url, index) => {
         const galleryItem = document.createElement('div');
         galleryItem.className = 'gallery-item';
-        galleryItem.innerHTML = `<img src="${url}" alt="Работа мастера" onerror="this.src='https://images.unsplash.com/photo-1594736797933-d0ea3ff8db41?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80'">`;
+        galleryItem.innerHTML = `<img src="${url}" alt="Работа мастера ${index + 1}" loading="lazy" onerror="handleImageError(this, ${index + 1})">`;
         topTrack.appendChild(galleryItem);
     });
     
-    // Создаем элементы для нижнего ряда
-    shuffledBottomImages.forEach(url => {
+    shuffledBottomImages.forEach((url, index) => {
         const galleryItem = document.createElement('div');
         galleryItem.className = 'gallery-item';
-        galleryItem.innerHTML = `<img src="${url}" alt="Работа мастера" onerror="this.src='https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=715&q=80'">`;
+        galleryItem.innerHTML = `<img src="${url}" alt="Работа мастера ${index + 16}" loading="lazy" onerror="handleImageError(this, ${index + 16})">`;
         bottomTrack.appendChild(galleryItem);
     });
     
-    // Дублируем элементы для бесконечной анимации
-    topTrack.innerHTML += topTrack.innerHTML;
-    bottomTrack.innerHTML += bottomTrack.innerHTML;
+    const topContent = topTrack.innerHTML;
+    const bottomContent = bottomTrack.innerHTML;
+    topTrack.innerHTML = topContent + topContent;
+    bottomTrack.innerHTML = bottomContent + bottomContent;
+    
+    console.log('Gallery created with local images');
 }
 
-// Инициализация галереи при загрузке страницы
+// ИСПРАВЛЕННЫЙ ПОИСК - ТОЛЬКО ПО ИМЕНИ/ФИО МАСТЕРОВ (не мастер-классы)
+function initializeSearch() {
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
+    const clearSearchButton = document.getElementById('clearSearch');
+    const searchResultsInfo = document.getElementById('searchResultsInfo');
+    const resultsCount = document.getElementById('resultsCount');
+    
+    if (!searchInput || !searchButton) {
+        console.error('Search elements not found!');
+        return;
+    }
+    
+    // Функция для нормализации текста
+    function normalizeText(text) {
+        return text.toLowerCase().trim().replace(/\s+/g, ' ');
+    }
+    
+    // Функция для поиска по первым буквам слов в имени
+    function searchByName(searchTerm, masterName) {
+        const normalizedSearch = normalizeText(searchTerm);
+        const normalizedName = normalizeText(masterName);
+        
+        // Если поиск пустой - показываем все
+        if (!normalizedSearch) return true;
+        
+        // Разбиваем имя на слова
+        const nameWords = normalizedName.split(' ');
+        
+        // Проверяем каждое слово - начинается ли с поискового запроса
+        for (let word of nameWords) {
+            if (word.startsWith(normalizedSearch)) {
+                return true;
+            }
+        }
+        
+        // Также проверяем, начинается ли полное имя с поискового запроса
+        if (normalizedName.startsWith(normalizedSearch)) {
+            return true;
+        }
+        
+        // Проверяем совпадение любого слова целиком (для коротких имен)
+        if (nameWords.some(word => word === normalizedSearch)) {
+            return true;
+        }
+        
+        return false;
+    }
+    
+    // Функция для поиска ТОЛЬКО среди мастеров
+    function performSearch() {
+        const searchTerm = searchInput.value.trim();
+        
+        if (!searchTerm) {
+            resetSearch();
+            return;
+        }
+        
+        // Получаем ТОЛЬКО карточки мастеров (не мастер-классы)
+        const masterCards = document.querySelectorAll('#mastersGrid .master-card');
+        
+        let foundCount = 0;
+        
+        // Ищем только в мастерах
+        masterCards.forEach(card => {
+            const nameElement = card.querySelector('.master-name');
+            if (!nameElement) {
+                card.style.display = 'none';
+                return;
+            }
+            
+            const masterName = nameElement.textContent;
+            const isMatch = searchByName(searchTerm, masterName);
+            
+            if (isMatch) {
+                card.style.display = 'block';
+                foundCount++;
+                
+                // Подсветка только в имени
+                highlightNameOnly(nameElement, searchTerm);
+            } else {
+                card.style.display = 'none';
+                // Сбрасываем подсветку если не подходит
+                removeHighlight(nameElement);
+            }
+        });
+        
+        // Мастер-классы всегда показываем (не участвуют в поиске)
+        const workshopCards = document.querySelectorAll('#workshopsGrid .workshop-card');
+        workshopCards.forEach(card => {
+            card.style.display = 'block';
+            // Сбрасываем подсветку в мастер-классах на всякий случай
+            const nameElement = card.querySelector('.master-name');
+            if (nameElement) removeHighlight(nameElement);
+        });
+        
+        // Показываем результаты
+        if (searchTerm) {
+            if (searchResultsInfo) {
+                searchResultsInfo.style.display = 'block';
+                resultsCount.textContent = foundCount;
+            }
+            if (clearSearchButton) clearSearchButton.style.display = 'inline-block';
+            
+            // Если ничего не найдено среди мастеров
+            if (foundCount === 0) {
+                showNoResultsMessage(searchTerm);
+            } else {
+                removeNoResultsMessage();
+            }
+        } else {
+            resetSearch();
+        }
+    }
+    
+    // Функция подсветки ТОЛЬКО имени
+    function highlightNameOnly(nameElement, searchTerm) {
+        if (!nameElement || !searchTerm) return;
+        
+        const originalText = nameElement.textContent;
+        const normalizedSearch = normalizeText(searchTerm);
+        const normalizedName = normalizeText(originalText);
+        
+        // Разбиваем имя на слова
+        const nameWords = originalText.split(' ');
+        
+        // Создаем новый HTML с подсветкой
+        let highlightedHTML = '';
+        
+        for (let i = 0; i < nameWords.length; i++) {
+            const word = nameWords[i];
+            const normalizedWord = normalizeText(word);
+            
+            // Проверяем, начинается ли слово с поискового запроса
+            if (normalizedWord.startsWith(normalizedSearch)) {
+                // Находим начало совпадения в оригинальном слове (с учетом регистра)
+                const matchLength = Math.min(searchTerm.length, word.length);
+                highlightedHTML += `<span class="highlight">${word.substring(0, matchLength)}</span>${word.substring(matchLength)}`;
+            } else {
+                highlightedHTML += word;
+            }
+            
+            // Добавляем пробел между словами (кроме последнего)
+            if (i < nameWords.length - 1) {
+                highlightedHTML += ' ';
+            }
+        }
+        
+        nameElement.innerHTML = highlightedHTML;
+    }
+    
+    // Функция сброса подсветки
+    function removeHighlight(nameElement) {
+        if (nameElement) {
+            nameElement.innerHTML = nameElement.textContent;
+        }
+    }
+    
+    // Функция показа сообщения "не найдено"
+    function showNoResultsMessage(searchTerm) {
+        // Удаляем старое сообщение
+        removeNoResultsMessage();
+        
+        const noResults = document.createElement('div');
+        noResults.className = 'no-results';
+        noResults.innerHTML = `
+            <p><i class="fas fa-search" style="margin-right: 10px; color: #ff6b6b;"></i> 
+            По запросу "<strong>${searchTerm}</strong>" мастеров не найдено.</p>
+            <p style="font-size: 0.9em; color: #777;">Попробуйте ввести первые буквы имени или фамилии.</p>
+            <p style="font-size: 0.9em; color: #777;">Например: "Ан" для Анастасии, "Нат" для Натальи, "Авс" для Авсиевич</p>
+        `;
+        
+        const mastersGrid = document.getElementById('mastersGrid');
+        if (mastersGrid) {
+            mastersGrid.parentNode.insertBefore(noResults, mastersGrid.nextSibling);
+        }
+    }
+    
+    // Функция удаления сообщения "не найдено"
+    function removeNoResultsMessage() {
+        const oldMessage = document.querySelector('.no-results');
+        if (oldMessage) oldMessage.remove();
+    }
+    
+    // Функция сброса поиска
+    function resetSearch() {
+        // Получаем карточки мастеров
+        const masterCards = document.querySelectorAll('#mastersGrid .master-card');
+        const workshopCards = document.querySelectorAll('#workshopsGrid .workshop-card');
+        
+        // Показываем все карточки мастеров и сбрасываем подсветку
+        masterCards.forEach(card => {
+            card.style.display = 'block';
+            const nameElement = card.querySelector('.master-name');
+            if (nameElement) removeHighlight(nameElement);
+        });
+        
+        // Показываем все мастер-классы
+        workshopCards.forEach(card => {
+            card.style.display = 'block';
+            const nameElement = card.querySelector('.master-name');
+            if (nameElement) removeHighlight(nameElement);
+        });
+        
+        searchInput.value = '';
+        
+        if (searchResultsInfo) searchResultsInfo.style.display = 'none';
+        if (clearSearchButton) clearSearchButton.style.display = 'none';
+        
+        removeNoResultsMessage();
+    }
+    
+    // Обработчики событий
+    searchButton.addEventListener('click', performSearch);
+    
+    // Поиск при нажатии Enter
+    searchInput.addEventListener('keyup', function(event) {
+        if (event.key === 'Enter') {
+            performSearch();
+        }
+    });
+    
+    // Автопоиск при вводе (по желанию, можно включить)
+    searchInput.addEventListener('input', function() {
+        performSearch();
+    });
+    
+    if (clearSearchButton) {
+        clearSearchButton.addEventListener('click', resetSearch);
+    }
+    
+    console.log('Search system initialized (masters only, name-only search)');
+}
+
+// Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Page loaded, initializing...');
+    
+    // Создаем галерею
     createGallery();
+    
+    // Инициализируем поиск
+    initializeSearch();
     
     // Мобильное меню
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const navMenu = document.getElementById('nav-menu');
 
-    mobileMenuBtn.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
-            ? '<i class="fas fa-times"></i>' 
-            : '<i class="fas fa-bars"></i>';
-    });
-
-    // Закрытие меню при клике на ссылку
-    const navLinks = document.querySelectorAll('nav a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
-                navMenu.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            }
+    if (mobileMenuBtn && navMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
         });
-    });
+
+        // Закрытие меню при клике на ссылку
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+    }
 
     // Плавная прокрутка
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -119,18 +380,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // Кнопка "Наверх"
     const backToTopBtn = document.getElementById('backToTop');
     
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            backToTopBtn.classList.add('visible');
-        } else {
-            backToTopBtn.classList.remove('visible');
-        }
-    });
-
-    backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
         });
-    });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+    
+    console.log('All systems initialized successfully');
 });
