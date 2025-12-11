@@ -3,7 +3,7 @@ function getRandomImages(count) {
     const images = [];
     for (let i = 0; i < count; i++) {
         const randomNum = Math.floor(Math.random() * 75) + 1;
-        images.push(`images/random-works/${randomNum}.jpg`);
+        images.push(`images/${randomNum}.jpg`);
     }
     return images;
 }
@@ -399,3 +399,4 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('All systems initialized successfully');
 });
+
